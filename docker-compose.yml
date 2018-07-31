@@ -1,0 +1,25 @@
+version: '2'
+services:
+  jenkins:
+    build: ./docker/jenkins/
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - ./docker/jenkins/data:/opt
+      - ./docker/jenkins/home:/var/jenkins_home
+    environment:
+      - JENKINS_USER=admin
+      - JENKINS_PASSWORD=123456
+      - JENKINS_NAME=administrator
+      - JENKINS_EMAIL=admin@localhost
+      # - /var/run/docker.sock:/var/run/docker.sock
+    # restart: always
+  # jenkins-bypass:
+  #   build: ./docker/jenkins-bypass/
+  #   volumes_from:
+  #     - jenkins
+  #   links:
+  #     - jenkins
+  #   depends_on:
+  #     - jenkins
