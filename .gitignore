@@ -1,3 +1,5 @@
 docker/jenkins/data/cookies.txt
 docker/jenkins/home/*
 !docker/jenkins/home/.gitkeep
+!docker/jenkins/home/init.groovy.d/.gitkeep
+!docker/jenkins/home/init.groovy.d/bypass.groovy

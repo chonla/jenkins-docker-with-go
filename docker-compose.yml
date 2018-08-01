@@ -1,4 +1,4 @@
-version: '2'
+version: '3.6'
 services:
   jenkins:
     build: ./docker/jenkins/
@@ -8,21 +8,26 @@ services:
     volumes:
       - ./docker/jenkins/data:/opt
       - ./docker/jenkins/home:/var/jenkins_home
-    environment:
-      - JENKINS_USER=admin
-      - JENKINS_PASSWORD=123456
-      - JENKINS_NAME=administrator
-      - JENKINS_EMAIL=admin@localhost
-  # jenkins-bypass:
-  #   build: ./docker/jenkins-bypass/
-  #   volumes_from:
-  #     - jenkins
-  #   links:
-  #     - jenkins
-  #   depends_on:
-  #     - jenkins
-  #   environment:
-  #     - JENKINS_USER=admin
-  #     - JENKINS_PASSWORD=123456
-  #     - JENKINS_NAME=administrator
-  #     - JENKINS_EMAIL=admin@localhost
+      # - app-volume:/var/jenkins_home
+    # environment:
+    #   - JENKINS_USER=admin
+    #   - JENKINS_PASSWORD=123456
+    #   - JENKINS_NAME=administrator
+    #   - JENKINS_EMAIL=admin@localhost
+#   jenkins-bypass:
+#     build: ./docker/jenkins-bypass/
+#     volumes:
+#       - app-volume:/var/jenkins_home
+#     # volumes_from:
+#     #   - jenkins
+#     # links:
+#     #   - jenkins
+#     depends_on:
+#       - jenkins
+#     environment:
+#       - JENKINS_USER=admin
+#       - JENKINS_PASSWORD=123456
+#       - JENKINS_NAME=administrator
+#       - JENKINS_EMAIL=admin@localhost
+# volumes:
+#   app-volume:
