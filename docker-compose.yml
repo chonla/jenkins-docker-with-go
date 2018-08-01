@@ -13,8 +13,6 @@ services:
       - JENKINS_PASSWORD=123456
       - JENKINS_NAME=administrator
       - JENKINS_EMAIL=admin@localhost
-      # - /var/run/docker.sock:/var/run/docker.sock
-    # restart: always
   # jenkins-bypass:
   #   build: ./docker/jenkins-bypass/
   #   volumes_from:
@@ -23,3 +21,8 @@ services:
   #     - jenkins
   #   depends_on:
   #     - jenkins
+  #   environment:
+  #     - JENKINS_USER=admin
+  #     - JENKINS_PASSWORD=123456
+  #     - JENKINS_NAME=administrator
+  #     - JENKINS_EMAIL=admin@localhost
