@@ -9,9 +9,9 @@ services:
       - ./docker/jenkins/data:/opt
       - ./docker/jenkins/home:/var/jenkins_home
       # - app-volume:/var/jenkins_home
-    # environment:
-    #   - JENKINS_USER=admin
-    #   - JENKINS_PASSWORD=123456
+    environment:
+      - JENKINS_USERNAME=admin
+      - JENKINS_PASSWORD=123456
     #   - JENKINS_NAME=administrator
     #   - JENKINS_EMAIL=admin@localhost
 #   jenkins-bypass:
