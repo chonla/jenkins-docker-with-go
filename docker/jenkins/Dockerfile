@@ -13,8 +13,8 @@ RUN apt-get update \
     && curl -O https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz \
     && tar -C /usr/local -xzf go1.10.3.linux-amd64.tar.gz
 
-# RUN /opt/bypass.sh
-
 USER jenkins
 
 ENV PATH="${PATH}:/usr/local/go/bin"
+
+RUN /opt/bypass.sh

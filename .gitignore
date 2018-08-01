@@ -1,1 +1,3 @@
 docker/jenkins/data/cookies.txt
+docker/jenkins/home/*
+!docker/jenkins/home/.gitkeep
