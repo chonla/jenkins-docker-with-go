@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3'
 services:
   jenkins:
     build: ./docker/jenkins/
@@ -10,6 +10,17 @@ services:
       - ./docker/jenkins/home:/var/jenkins_home
     environment:
       - JENKINS_USERNAME=admin
-      - JENKINS_PASSWORD=123456
+      - JENKINS_PASSWORD=admin@1234
       - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
       - JENKINS_UC_DOWNLOAD=http://mirrors.jenkins-ci.org
+  caddy:
+    image: abiosoft/caddy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./docker/caddy/data/Caddyfile:/etc/Caddyfile
+      - ./html:/var/www/html
+    links:
+      - jenkins
+    restart: always
